@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <!-- Estrutura principal da página -->
+    <div class="main-login">
+        <!-- Parte esquerda com o título e a imagem -->
+        <div class="left-login">
+            <h1>Faça seu cadastro<br>e faça parte do nosso time</h1>
+            <img src="estudante.svg" class="left-login-image" alt="estudante">
+        </div>
+        <!-- Formulário de cadastro -->
+        <form method="POST" onsubmit="cadastrar(event)">
+            <!-- Parte direita com o card de cadastro -->
+            <div class="right-login">
+                <div class="card-login">
+                    <h1>CADASTRO</h1>
+                    <!-- Campo para inserir o novo usuário -->
+                    <div class="textfield">
+                        <label for="novoUsuario">Novo Usuário</label>
+                        <input type="text" name="novoUsuario" id="novoUsuario" placeholder="Novo Usuário">
+                    </div>
+                    <!-- Campo para inserir a nova senha -->
+                    <div class="textfield">
+                        <label for="novaSenha">Nova Senha</label>
+                        <input type="password" name="novaSenha" id="novaSenha" placeholder="Nova Senha">
+                    </div>
+                    <!-- Botão para salvar as informações -->
+                    <button type="submit" class="btn-login">Salvar Informações</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Script JavaScript para realizar a validação e o envio do cadastro -->
+    <script>
+        function cadastrar(event) {
+            // Prevenir o comportamento padrão do formulário
+            event.preventDefault();
+
+            // Obter os valores dos campos
+            var novoUsuario = document.getElementById('novoUsuario').value;
+            var novaSenha = document.getElementById('novaSenha').value;
+
+            // Exibir mensagem de sucesso ou erro
+            if (novoUsuario && novaSenha) {
+                // Aqui você pode adicionar lógica para enviar os dados para o backend
+                // Exemplo fictício de uma solicitação AJAX usando a API Fetch
+                alert('Cadastro realizado com sucesso!');
+                // Redirecionar para a página de login com os parâmetros
+                window.location.href = 'pagina.html?usuario=' + encodeURIComponent(novoUsuario) + '&senha=' + encodeURIComponent(novaSenha);
+            } else {
+                alert('Erro ao cadastrar. Por favor, preencha todos os campos.');
+            }
+        }
+    </script>
+</body>
+</html>

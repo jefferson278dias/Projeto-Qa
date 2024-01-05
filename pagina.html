@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <!-- Estrutura principal da página -->
+    <div class="main-login">
+        <!-- Parte esquerda com o título e a imagem -->
+        <div class="left-login">
+            <h1>Faça seu login<br>E entre para nosso time</h1>
+            <img src="estudante.svg" class="left-login-image" alt="estudante">
+        </div>
+        <!-- Parte direita com o formulário de login -->
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <!-- Campo para inserir o nome de usuário -->
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" placeholder="Usuário" id="usuario">
+                </div> 
+                <!-- Campo para inserir a senha -->
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Senha" id="senha"> 
+                    <!-- Link para recuperação de senha -->
+                    <div class="cadastro"><a href="cadastrar.html">Esqueceu a senha?</a></div>
+                </div>
+                <!-- Botão para realizar o login -->
+                <button class="btn-login" onclick="logar()">Login</button>
+                <!-- Link para criar uma nova conta -->
+                <div class="cadastro"><a href="cadastrar.html" id="n2">Criar uma conta</a></div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Script JavaScript para realizar a validação do login -->
+    <script>
+        function logar() {
+            // Obter o usuário e a senha informados pelo usuário
+            var usuarioInformado = document.getElementById('usuario').value;
+            var senhaInformada = document.getElementById('senha').value;
+
+            // Obter os parâmetros da URL (usuário e senha cadastrados)
+            var urlParams = new URLSearchParams(window.location.search);
+            var usuarioCadastrado = urlParams.get('usuario');
+            var senhaCadastrada = urlParams.get('senha');
+
+            // Verificar se o usuário e a senha informados correspondem aos cadastrados
+            if (usuarioInformado === usuarioCadastrado && senhaInformada === senhaCadastrada) {
+                // Exibir mensagem de sucesso e redirecionar para a página principal
+                alert('Login bem-sucedido!');
+                // Adicione aqui a lógica para redirecionar para a página principal ou outra página após o login.
+            } else {
+                // Exibir mensagem de erro se usuário ou senha estiverem incorretos
+                alert('Usuário ou senha incorretos.');
+            }
+        }
+    </script>
+</body>
+</html>
